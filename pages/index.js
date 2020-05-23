@@ -19,6 +19,10 @@ export default function Home() {
       <Head>
         <title>Pokedex</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
 
       <main className="p-5">

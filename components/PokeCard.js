@@ -34,7 +34,7 @@ export default function PokeCard({ id }) {
 
   if (!data) {
     return (
-      <div className="flex flex-wrap justify-center w-48 p-5 text-center align-middle shadow-lg h-84 rounded-4xl">
+      <div className="flex flex-col justify-center w-48 p-5 text-center align-middle bg-white shadow-lg h-84 rounded-4xl">
         Loading
       </div>
     );
