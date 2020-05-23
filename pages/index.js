@@ -23,7 +23,7 @@ export default function Home() {
 
       <main className="p-5">
         <div className="flex justify-center">
-          <h1 className="flex block align-middle">Pokedex</h1>
+          <h1 className="flex block text-4xl align-middle">PokeDex</h1>
         </div>
         <div className="grid grid-cols-1 gap-12 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {pokecards}

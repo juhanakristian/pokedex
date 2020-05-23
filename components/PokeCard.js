@@ -52,10 +52,14 @@ export default function PokeCard({ id }) {
   return (
     <div
       style={{ backgroundColor: color }}
-      className="flex flex-wrap justify-center w-48 p-5 shadow-lg h-84 rounded-xl"
+      className="flex flex-wrap justify-center w-48 p-5 shadow-lg h-84 rounded-4xl"
     >
-      <div className="flex bg-white bg-opacity-50 rounded-full">
-        <img className="w-full" src={imageUrl} alt={data.name} />
+      <div className="flex w-40 h-40 bg-white bg-opacity-50 rounded-full">
+        <img
+          className="w-full h-full p-1 mt-5"
+          src={imageUrl}
+          alt={data.name}
+        />
       </div>
       <div>
         <div className="p-1 pl-2 pr-2 mt-4 ml-8 mr-8 text-sm text-center bg-gray-800 bg-opacity-25 rounded-xl">
