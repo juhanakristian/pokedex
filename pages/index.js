@@ -2,16 +2,28 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-import { range } from "lodash";
+import { range, reduce } from "lodash";
 
 import PokeCard from "../components/PokeCard";
 
-const POKEMON_COUNT = 150;
-const pokemons = range(1, POKEMON_COUNT);
+export async function getStaticProps(context) {
+  let pokemons = [];
+  for (const id of range(1, 150)) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const pokemon = await response.json();
+    pokemons.push(pokemon);
+  }
 
-export default function Home() {
+  return {
+    props: {
+      pokemons,
+    },
+  };
+}
+
+export default function Home({ pokemons }) {
   const pokecards = pokemons.map((pokemon) => (
-    <PokeCard key={pokemon} id={pokemon} />
+    <PokeCard key={pokemon.id} pokemon={pokemon} />
   ));
 
   return (

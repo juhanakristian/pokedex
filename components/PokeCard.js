@@ -29,25 +29,14 @@ const colors = {
   normal: "#F5F5F5",
 };
 
-export default function PokeCard({ id }) {
-  const { data, error } = useSWR(`api/v2/pokemon/${id}`, getPokemon);
-
-  if (!data) {
-    return (
-      <div className="flex flex-col justify-center w-48 p-5 text-center align-middle bg-white shadow-lg h-84 rounded-4xl">
-        Loading
-      </div>
-    );
-  }
-
-  const imageUrl = `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`;
-  const name = capitalize(data.name);
+export default function PokeCard({ pokemon }) {
+  const imageUrl = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
+  const name = capitalize(pokemon.name);
 
   const mainTypes = Object.keys(colors);
-  const types = map(data.types, (t) => t.type.name);
+  const types = map(pokemon.types, (t) => t.type.name);
   const pokemonType = find(mainTypes, (t) => types.indexOf(t) > -1);
   const color = colors[pokemonType];
-  console.log(color);
 
   return (
     <div
@@ -58,12 +47,12 @@ export default function PokeCard({ id }) {
         <img
           className="w-full h-full p-1 mt-5"
           src={imageUrl}
-          alt={data.name}
+          alt={pokemon.name}
         />
       </div>
       <div>
         <div className="p-1 pl-2 pr-2 mt-4 ml-8 mr-8 text-sm text-center bg-gray-800 bg-opacity-25 rounded-xl">
-          #{id.toString().padStart(3, "0")}
+          #{pokemon.id.toString().padStart(3, "0")}
         </div>
         <div className="mt-1 text-center">{name}</div>
         <div className="mt-1 text-xs text-center">Type: {pokemonType}</div>
