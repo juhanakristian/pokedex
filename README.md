@@ -11,4 +11,12 @@ npm run dev
 yarn dev
 ```
 
+## Demo
+
+[https://pokedex.juhanakristian.now.sh]
+
+## Screenshots
+
+![alt PokeDex][screenshots/screenshot.png]
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
